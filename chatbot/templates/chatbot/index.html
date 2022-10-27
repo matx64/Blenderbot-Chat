@@ -16,6 +16,27 @@
         </header>
 
         <main class="container mx-auto shadow-2xl max-w-3xl my-10 flex-grow overflow-hidden">
+            <div class="bg-green-600 rounded-lg border-2 border-gray-900 p-5 h-full flex flex-col">
+                <div class="text-right">
+                    <button class="text-xs font-bold underline text-green-200">
+                        clear chat
+                    </button>
+                </div>
+                <div class="flex-grow overflow-auto p-3 content-between mt-5">
+                    <ul class="messages"></ul>
+                    <p class="text-sm hidden">Yoda is typing...</p>
+                    <div ref="bottom"></div>
+                </div>
+
+                <form class="text-center flex items-center justify-center mt-5" action="/message" method="post">
+                    {% csrf_token %}
+                    <input class="p-2 rounded mr-1 text-black flex-grow" name="user_message"
+                        placeholder="say something to yoda" />
+                    <button type="submit" class="ml-1 p-2 bg-gray-900 shadow rounded hover:bg-gray-800">
+                        ▷
+                    </button>
+                </form>
+            </div>
         </main>
 
         <footer class="text-center mx-auto flex-none">

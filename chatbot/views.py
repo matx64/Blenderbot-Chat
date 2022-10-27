@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.conf import settings
+
+from .forms import MessageForm
 
 import requests
 import time
@@ -12,6 +14,9 @@ def index(request):
 
 
 def message(request):
+    if request.method == 'GET':
+        return HttpResponseNotFound('invalid.')
+
     if request.session.get('accessToken') is None or request.session.get('expiration', 0) < time.time() or request.session.get('sessionToken') is None:
         url = 'https://api.inbenta.io/v1/auth'
         headers = {'x-inbenta-key': settings.INBENTA_KEY}
@@ -41,7 +46,7 @@ def message(request):
         'x-inbenta-session': 'Bearer ' + request.session['sessionToken']
     }
     body = {
-        'message': json.loads(request.body.decode('utf-8'))['userMessage']
+        'message': request.POST['user_message']
     }
 
     r = requests.post(url, headers=headers, data=body)
