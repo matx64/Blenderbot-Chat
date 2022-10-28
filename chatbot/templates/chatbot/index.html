@@ -23,14 +23,15 @@
                     </button>
                 </div>
                 <div class="flex-grow overflow-auto p-3 content-between mt-5">
-                    <ul class="messages"></ul>
+                    <div id="message-list"></div>
                     <p class="text-sm hidden">Yoda is typing...</p>
                     <div ref="bottom"></div>
                 </div>
 
-                <form class="text-center flex items-center justify-center mt-5" action="/message" method="post">
+                <form id="message-form" class="text-center flex items-center justify-center mt-5" action="/message"
+                    method="post">
                     {% csrf_token %}
-                    <input class="p-2 rounded mr-1 text-black flex-grow" name="user_message"
+                    <input class="p-2 rounded mr-1 text-black flex-grow" id="message-input" name="user_message"
                         placeholder="say something to yoda" />
                     <button type="submit" class="ml-1 p-2 bg-gray-900 shadow rounded hover:bg-gray-800">
                         ▷
@@ -46,6 +47,8 @@
             </a>
         </footer>
     </div>
+    {% load static %}
+    <script src="{% static 'main.js' %}"></script>
 </body>
 
 </html>
