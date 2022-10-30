@@ -4,6 +4,7 @@
 - Django
 - TailwindCSS
 - Inbenta Chatbot API
+- Docker
 - Fly.io
 
 
