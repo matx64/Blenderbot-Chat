@@ -10,8 +10,8 @@
 ### Installation
 
 ```bash
-python -m venv venv &&
-./venv/Scripts/activate &&
+python3 -m venv venv &&
+source ./venv/bin/activate &&
 pip install --upgrade pip &&
 pip install -r requirements.txt
 ```
@@ -20,5 +20,6 @@ pip install -r requirements.txt
 ### Run it locally
 
 ```bash
-python -m manage.py runserver
+python3 manage.py migrate &&
+python3 manage.py runserver
 ```

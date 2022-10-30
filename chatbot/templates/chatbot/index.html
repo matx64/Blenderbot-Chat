@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoda Chatbot</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'icon.ico' %}">
 </head>
 
 <body>
-    <div class="h-screen bg-green-900 text-white p-10 flex flex-col justify-between">
+    <div class="h-screen bg-green-900 text-white p-10 flex flex-col justify-between font-mono">
         <header class="flex-none">
             <h1 class="text-3xl font-bold text-center">Yoda Chatbot</h1>
         </header>
@@ -18,13 +20,13 @@
         <main class="container mx-auto shadow-2xl max-w-3xl my-10 flex-grow overflow-hidden">
             <div class="bg-green-600 rounded-lg border-2 border-gray-900 p-5 h-full flex flex-col">
                 <div class="text-right">
-                    <button class="text-xs font-bold underline text-green-200">
+                    <button id="clear-btn" class="text-xs font-bold underline text-green-200">
                         clear chat
                     </button>
                 </div>
                 <div class="flex-grow overflow-auto p-3 content-between mt-5">
                     <div id="message-list"></div>
-                    <p class="text-sm hidden">Yoda is typing...</p>
+                    <p id="yoda-is-typing" class="text-sm hidden">Yoda is typing...</p>
                     <div ref="bottom"></div>
                 </div>
 

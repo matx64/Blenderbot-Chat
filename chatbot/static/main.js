@@ -1,6 +1,8 @@
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
 const messageList = document.getElementById('message-list');
+const clearButton = document.getElementById('clear-btn');
+const yodaTyping = document.getElementById('yoda-is-typing');
 
 const messageComponent = {
     'user': (text) =>
@@ -29,18 +31,29 @@ const messageComponent = {
 }
 
 let messages = [];
+if (localStorage.getItem('messages')) {
+    try {
+        messages = JSON.parse(localStorage.getItem('messages'));
+        for (const message of messages) {
+            messageList.innerHTML += messageComponent[message.from](message.text);
+        }
+    } catch (e) {
+        messages = [];
+        localStorage.removeItem('messages');
+    }
+}
 
 messageForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    if (messageInput !== '') {
-        messages.push({ text: messageInput.value, from: 'user' });
-        messageList.innerHTML += messageComponent['user'](messageInput.value);
+    if (messageInput.value !== '') {
+        handleMessage(messageInput.value, 'user');
 
         let data = new FormData();
         data.append('user_message', messageInput.value);
 
         messageInput.value = '';
+        yodaTyping.classList.remove('hidden');
 
         fetch('/message', {
             method: 'POST',
@@ -49,12 +62,28 @@ messageForm.addEventListener('submit', function (e) {
             headers: {
                 "X-CSRFToken": getCookie("csrftoken")
             }
-        }).then(response => response.json())
-            .then((json) => {
-                messageList.innerHTML += messageComponent['yoda'](json['answers'][0]['message']);
+        }).then(response => response.text())
+            .then((text) => {
+                yodaTyping.classList.add('hidden');
+                handleMessage(text, 'yoda');
             })
     }
 });
+
+clearButton.addEventListener('click', function () {
+    messageList.innerHTML = '';
+    messages = [];
+    localStorage.removeItem('messages')
+});
+
+function handleMessage(text, from) {
+    messageList.innerHTML += messageComponent[from](text);
+    messages.push({
+        'text': text,
+        'from': from
+    });
+    localStorage.setItem('messages', JSON.stringify(messages))
+}
 
 function getCookie(name) {
     let cookieValue = null;

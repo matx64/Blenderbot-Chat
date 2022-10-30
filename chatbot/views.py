@@ -2,11 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.conf import settings
 
-from .forms import MessageForm
-
 import requests
 import time
-import json
 
 
 def index(request):
@@ -37,8 +34,6 @@ def message(request):
 
         request.session['sessionToken'] = r['sessionToken']
 
-        print(request.session.items())
-
     url = 'https://api-gce3.inbenta.io/prod/chatbot/v1/conversation/message'
     headers = {
         'x-inbenta-key': settings.INBENTA_KEY,
@@ -51,4 +46,6 @@ def message(request):
 
     r = requests.post(url, headers=headers, data=body)
 
-    return HttpResponse(r, content_type='application/json')
+    yoda_answer = r.json()['answers'][0]['message']
+
+    return HttpResponse(yoda_answer)
