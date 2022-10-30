@@ -1,3 +1,4 @@
+const chatScroll = document.getElementById('chat-scroll');
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
 const messageList = document.getElementById('message-list');
@@ -37,6 +38,7 @@ if (localStorage.getItem('messages')) {
         for (const message of messages) {
             messageList.innerHTML += messageComponent[message.from](message.text);
         }
+        chatScroll.scrollIntoView({ behavior: 'smooth', block: 'end' });
     } catch (e) {
         messages = [];
         localStorage.removeItem('messages');
@@ -73,16 +75,17 @@ messageForm.addEventListener('submit', function (e) {
 clearButton.addEventListener('click', function () {
     messageList.innerHTML = '';
     messages = [];
-    localStorage.removeItem('messages')
+    localStorage.removeItem('messages');
 });
 
 function handleMessage(text, from) {
     messageList.innerHTML += messageComponent[from](text);
+    chatScroll.scrollIntoView({ behavior: 'smooth', block: 'end' });
     messages.push({
         'text': text,
         'from': from
     });
-    localStorage.setItem('messages', JSON.stringify(messages))
+    localStorage.setItem('messages', JSON.stringify(messages));
 }
 
 function getCookie(name) {
