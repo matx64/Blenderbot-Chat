@@ -6,35 +6,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoda Chatbot</title>
+    <title>blenderbot chat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="{% static 'icon.ico' %}">
 </head>
 
 <body>
-    <div class="h-screen bg-green-900 text-white p-10 flex flex-col justify-between font-mono">
+    <div class="h-screen bg-blue-900 text-white p-10 flex flex-col justify-between font-mono">
         <header class="flex-none">
-            <h1 class="text-3xl font-bold text-center">Yoda Chatbot</h1>
+            <h1 class="text-3xl font-bold text-center">blender<span class="text-blue-300">bot</span> chat</h1>
         </header>
 
         <main class="container mx-auto shadow-2xl max-w-3xl my-10 flex-grow overflow-hidden">
-            <div class="bg-green-600 rounded-lg border-2 border-gray-900 p-5 h-full flex flex-col">
+            <div class="bg-blue-600 rounded-lg border-2 border-gray-900 p-5 h-full flex flex-col">
                 <div class="text-right">
-                    <button id="clear-btn" class="text-xs font-bold underline text-green-200">
+                    <button id="clear-btn" class="text-xs font-bold underline text-blue-200">
                         clear chat
                     </button>
                 </div>
                 <div class="flex-grow overflow-auto p-3 content-between mt-5">
                     <div id="message-list"></div>
-                    <p id="yoda-is-typing" class="text-sm hidden">Yoda is typing...</p>
+                    <p id="bot-is-typing" class="text-sm invisible">Bot is typing...</p>
                     <div id="chat-scroll" ref="bottom"></div>
                 </div>
 
                 <form id="message-form" class="text-center flex items-center justify-center mt-5" action="/message"
                     method="post">
                     {% csrf_token %}
-                    <input class="p-2 rounded mr-1 text-black flex-grow" id="message-input" name="user_message"
-                        placeholder="say something to yoda" />
+                    <input class="p-2 rounded mr-1 text-black flex-grow" id="message-input" name="user_message" placeholder="say something" />
                     <button type="submit" class="ml-1 p-2 bg-gray-900 shadow rounded hover:bg-gray-800">
                         ▷
                     </button>

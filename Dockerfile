@@ -21,4 +21,4 @@ EXPOSE 8000
 RUN python manage.py migrate && \
     python manage.py collectstatic
 
-CMD gunicorn --bind :8000 --workers 2 yoda_chatbot.wsgi
+CMD gunicorn --bind :8000 --workers 2 blenderbot_chat.wsgi

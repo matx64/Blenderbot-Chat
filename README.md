@@ -1,9 +1,9 @@
-# Yoda Chatbot
+# Blenderbot Chat
 
 ## Tech
 - Django
 - TailwindCSS
-- Inbenta Chatbot API
+- Blenderbot Hugging Face Inference API
 - Docker
 - Fly.io
 

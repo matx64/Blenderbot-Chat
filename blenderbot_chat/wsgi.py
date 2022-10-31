@@ -1,5 +1,5 @@
 """
-WSGI config for yoda_chatbot project.
+WSGI config for blenderbot_chat project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yoda_chatbot.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blenderbot_chat.settings')
 
 application = get_wsgi_application()
