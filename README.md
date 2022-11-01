@@ -3,7 +3,7 @@
 👉 Available at https://blenderbot-chat.fly.dev
 
 
-## 🔨 Tech
+### 🔨 Tech
 - Python 3.10
 - Django
 - TailwindCSS

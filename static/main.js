@@ -36,7 +36,7 @@ if (localStorage.getItem('past_user_inputs') && localStorage.getItem('generated_
     try {
         past_user_inputs = JSON.parse(localStorage.getItem('past_user_inputs'));
         generated_responses = JSON.parse(localStorage.getItem('generated_responses'));
-        for (let i = 0; i < past_user_inputs.length; i++){
+        for (let i = 0; i < past_user_inputs.length; i++) {
             messageList.innerHTML += messageComponent['user'](past_user_inputs[i]);
             messageList.innerHTML += messageComponent['bot'](generated_responses[i]);
         }
@@ -56,7 +56,8 @@ messageForm.addEventListener('submit', function (e) {
         messageList.innerHTML += messageComponent['user'](messageInput.value);
         botTyping.classList.remove('invisible');
         chatScroll.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        
+        messageInput.disabled = true;
+
         past_user_inputs.push(messageInput.value);
         localStorage.setItem('past_user_inputs', JSON.stringify(past_user_inputs));
 
@@ -78,6 +79,7 @@ messageForm.addEventListener('submit', function (e) {
                 botTyping.classList.add('invisible');
                 messageList.innerHTML += messageComponent['bot'](text);
                 chatScroll.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                messageInput.disabled = false;
 
                 generated_responses.push(text);
                 localStorage.setItem('generated_responses', JSON.stringify(generated_responses));
