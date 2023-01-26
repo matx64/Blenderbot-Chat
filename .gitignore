@@ -1,18 +1,2 @@
-# DJANGO
-*.log
-*.pot
-*.pyc
-__pycache__
-db.sqlite3
-media
-/staticfiles
-
-# ENV
 .env
-.venv 
-env/ 
-venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/
-fly.toml
+/tmp

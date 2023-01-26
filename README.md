@@ -1,35 +1,18 @@
 # 🤖 Blenderbot Chat
 
-👉 Available at https://blenderbot-chat.fly.dev
-
+👉 Available at: loading...
 
 ### 🔨 Tech
-- Python 3.10
-- Django
-- TailwindCSS
+
+- Go 1.19
+- Html, CSS, JS
 - Blenderbot Hugging Face Inference API
-- Docker
-- Fly.io
-
-
-### 💻 Installation
-
-```bash
-python3 -m venv venv &&
-source ./venv/bin/activate &&
-pip install --upgrade pip &&
-pip install -r requirements.txt
-```
-
+- Google Cloud Run
 
 ### 🏠 Run it locally
 
 ```bash
-python3 manage.py migrate &&
-python3 manage.py runserver
+go run .
 ```
 
-```bash
-docker build -t blenderbot-chat . &&
-docker run -p 8000:8000 --rm --name blenderbot-chat-running blenderbot-chat
-```
+OR use **[air](https://github.com/cosmtrek/air)** instead.

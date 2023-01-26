@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Blenderbot Chat - Chat with a friendly bot."
+    />
+    <title>blenderbot chat</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>blender<span>bot</span> chat</h1>
+      </header>
+
+      <main>
+        <div id="main-container">
+          <div class="text-right">
+            <span id="clear-btn"> clear chat </span>
+          </div>
+
+          <div id="chat-container">
+            <div id="message-list"></div>
+            <p id="bot-is-typing">Bot is typing...</p>
+            <div id="chat-scroll" ref="bottom"></div>
+          </div>
+
+          <form id="message-form" action="/message" method="post">
+            <input
+              id="message-input"
+              name="user_message"
+              placeholder="say something"
+            />
+            <button type="submit">▷</button>
+          </form>
+        </div>
+      </main>
+
+      <footer>
+        developed by 🙋‍♂️
+        <a href="https://matx.dev"> matheus teixeira </a>
+      </footer>
+    </div>
+    <script defer src="main.js"></script>
+  </body>
+</html>

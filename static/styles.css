@@ -1,0 +1,168 @@
+:root {
+  --text-blue-900: rgb(30, 58, 138);
+  --text-blue-600: rgb(37, 99, 235);
+  --text-blue-300: rgb(147, 197, 253);
+}
+
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  margin: 0;
+}
+
+#container {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--text-blue-900);
+  color: white;
+  padding: 2.5rem;
+  line-height: 24px;
+}
+
+header h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+header h1 span {
+  color: var(--text-blue-300);
+}
+
+main {
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 48rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+#main-container {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background-color: var(--text-blue-600);
+  border: 2px solid black;
+  border-radius: 0.5rem;
+}
+
+#clear-btn {
+  color: rgb(235, 244, 255);
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+#chat-container {
+  padding: 0.75rem;
+  overflow: auto;
+  flex-grow: 1;
+  margin-top: 1.25rem;
+}
+
+#bot-is-typing {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  visibility: hidden;
+}
+
+.message {
+  display: flex;
+  vertical-align: middle;
+  text-align: justify;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.message div {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.user-message div {
+  background-color: var(--text-blue-900);
+}
+
+.bot-message div {
+  color: black;
+  background-color: var(--text-blue-300);
+}
+
+.message-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#message-form {
+  display: flex;
+  margin-top: 1.25rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#message-form button {
+  padding: 0.5rem;
+  background-color: black;
+  border-radius: 0.25rem;
+  margin: 0;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  text-transform: none;
+  color: white;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+#message-input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  flex-grow: 1;
+  margin: 0;
+  margin-right: 0.25rem;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border: none;
+  font-size: 100%;
+}
+
+footer {
+  text-align: center;
+  flex: none;
+}
+
+footer a {
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
