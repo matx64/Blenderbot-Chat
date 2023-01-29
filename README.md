@@ -15,4 +15,9 @@
 go run .
 ```
 
+```bash
+docker build -t blenderbot-chat . &&
+docker run -p 3000:3000 blenderbot-chat
+```
+
 OR use **[air](https://github.com/cosmtrek/air)** instead.

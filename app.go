@@ -21,8 +21,8 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/message", handleMessage)
 
-	log.Printf("listening on port %s", "8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	log.Printf("listening on port %s", "3000")
+	if err := http.ListenAndServe(":3000", nil); err != nil {
 		log.Fatal(err)
 	}
 }
