@@ -14,6 +14,8 @@
 go run .
 ```
 
+with docker:
+
 ```bash
 docker build -t blenderbot-chat . &&
 docker run -p 3000:3000 blenderbot-chat
