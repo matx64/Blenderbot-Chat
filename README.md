@@ -1,13 +1,12 @@
 # 🤖 Blenderbot Chat
 
-👉 Available at: loading...
+👉 Available at: https://blenderbot.matx.dev
 
 ### 🔨 Tech
 
 - Go 1.19
 - Html, CSS, JS
 - Blenderbot Hugging Face Inference API
-- Google Cloud Run
 
 ### 🏠 Run it locally
 
