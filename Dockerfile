@@ -6,6 +6,6 @@ COPY . .
 
 RUN go mod tidy
 
-RUN go build -o ./out/dist .
+RUN go build -o ./out/dist ./cmd
 
 CMD ./out/dist
